@@ -6,7 +6,7 @@ class Wordfreq
     'were', 'will', 'with']
 # use 'scan'?
   def initialize(filename)
-    print @text = File.read(filename)
+    @text = File.read(filename)
       .gsub(/\W/, ' ')
       .downcase
       .split(" ")
@@ -14,10 +14,16 @@ class Wordfreq
   end
 
   def frequency(word)
-    
+    txt_hash = Hash.new
+    @text.uniq.each do |f|
+      txt_hash["#{f}"] = @text.count(f)
+    print txt_hash
+  end
+
   end
 
   def frequencies
+
   end
 
   def top_words(number)
