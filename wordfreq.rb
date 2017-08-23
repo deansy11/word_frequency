@@ -1,16 +1,20 @@
+require 'pry'
+
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
     'were', 'will', 'with']
 # use 'scan'?
   def initialize(filename)
-    @text = File.read(filename)
-    @text.gsub(/\W/, ' ')
-    print @text.downcase
-
+    print @text = File.read(filename)
+      .gsub(/\W/, ' ')
+      .downcase
+      .split(" ")
+      .reject { |e| STOP_WORDS.include? e }
   end
 
   def frequency(word)
+    
   end
 
   def frequencies
