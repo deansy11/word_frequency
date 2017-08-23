@@ -5,7 +5,9 @@ class Wordfreq
 # use 'scan'?
   def initialize(filename)
     @text = File.read(filename)
-    print @text.gsub(/\W/, ' ')
+    @text.gsub(/\W/, ' ')
+    print @text.downcase
+
   end
 
   def frequency(word)
