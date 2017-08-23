@@ -2,8 +2,10 @@ class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
     'were', 'will', 'with']
-
+# use 'scan'?
   def initialize(filename)
+    @text = File.read(filename)
+    print @text.gsub(/\W/, ' ')
   end
 
   def frequency(word)
