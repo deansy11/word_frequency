@@ -1,10 +1,8 @@
-require 'pry'
-
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
     'were', 'will', 'with']
-# use 'scan'?
+
   def initialize(filename)
     @text = File.read(filename)
       .gsub(/\W/, ' ')
@@ -13,23 +11,23 @@ class Wordfreq
       .reject { |e| STOP_WORDS.include? e }
   end
 
-  def frequency(word)
+  def frequency(word) #2
+    frequencies[word]
+  end
+
+  def frequencies #1
     txt_hash = Hash.new
-    @text.uniq.each do |f|
+    @text.each do |f|
       txt_hash["#{f}"] = @text.count(f)
-    print txt_hash
+    end
+    txt_hash
   end
 
-  end
-
-  def frequencies
+  def top_words(number) #3
 
   end
 
-  def top_words(number)
-  end
-
-  def print_report
+  def print_report #4
   end
 end
 
