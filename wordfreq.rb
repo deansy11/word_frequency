@@ -1,3 +1,5 @@
+require 'pry'
+
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
@@ -12,7 +14,11 @@ class Wordfreq
   end
 
   def frequency(word) #2
-    frequencies[word]
+    if frequencies[word] == nil
+      0
+    else
+      frequencies[word]
+    end
   end
 
   def frequencies #1
@@ -24,10 +30,11 @@ class Wordfreq
   end
 
   def top_words(number) #3
-
+    frequencies.sort { |a, b| [b[1], a[0]] <=> [a[1], b[0]] }[0..(number - 1)]
   end
 
   def print_report #4
+    
   end
 end
 
