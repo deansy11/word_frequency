@@ -34,7 +34,9 @@ class Wordfreq
   end
 
   def print_report #4
-    
+    top_words(10).each do |x, y|
+      puts "#{x} |".rjust(9) + "#{y}".ljust(4) + "*" * @text.count(x)
+    end
   end
 end
 
